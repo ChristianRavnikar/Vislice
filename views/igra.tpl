@@ -1,13 +1,5 @@
 % from model import ZMAGA, PORAZ
-
-<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-</head>
-
-
-<html>
+% rebase('base.tpl')
 
 
 <body>
@@ -56,7 +48,3 @@
   </form>
 
 % end
-
-</body>
-
-</html>
