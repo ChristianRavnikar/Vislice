@@ -3,7 +3,7 @@ import model
 
 SKRIVNOST = 'moja skrivnost'
 
-vislice = model.Vislice()
+vislice = model.Vislice(model.DATOTEKA_S_STANJEM)
 
 @bottle.get("/")
 def index():
