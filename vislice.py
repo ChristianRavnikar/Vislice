@@ -1,6 +1,8 @@
 import bottle
 import model
 
+SKRIVNOST = 'moja skrivnost'
+
 vislice = model.Vislice()
 
 @bottle.get("/")
@@ -16,7 +18,7 @@ def index():
 @bottle.post("/nova-igra/")
 def nova_igra():
     id_igre = vislice.nova_igra()
-    bottle.response.set_cookie('idigre', f'idigre{id_igre}', path='/')
+    bottle.response.set_cookie('idigre', f'idigre{id_igre}', secret=SKRIVNOST, path='/')
     bottle.redirect('/igra/')
 
 # @bottle.get("/igra/<id_igre:int>/")
@@ -26,7 +28,7 @@ def nova_igra():
 
 @bottle.get('/igra/')
 def pokazi_igro():
-    id_igre = int(bottle.request.get_cookie('idigre').split('e')[1])
+    id_igre = int(bottle.request.get_cookie('idigre', secret=SKRIVNOST).split('e')[1])
     trenutna_igra, trenutno_stanje = vislice.igre[id_igre]
     return bottle.template('igra.tpl', igra=trenutna_igra, stanje=trenutno_stanje)
 
@@ -38,7 +40,7 @@ def pokazi_igro():
 
 @bottle.post('/igra/')
 def ugibaj_na_igri():
-    id_igre = int(bottle.request.get_cookie('idigre').split('e')[1])
+    id_igre = int(bottle.request.get_cookie('idigre', secret=SKRIVNOST).split('e')[1])
     ugibana = bottle.request.forms["crka"]
     vislice.ugibaj(id_igre, ugibana)
     return bottle.redirect('/igra/')
