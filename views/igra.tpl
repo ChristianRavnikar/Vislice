@@ -1,4 +1,4 @@
-from model import ZMAGA, PORAZ
+% from model import ZMAGA, PORAZ
 
 <!DOCTYPE html>
 
