@@ -24,4 +24,11 @@ def ugibaj_na_igri(id_igre):
     vislice.ugibaj(id_igre, ugibana)
     return bottle.redirect(f"/igra/{id_igre}/")
 
+
+@bottle.route("/img/<file_path:path>")
+def img_static(file_path):
+    return bottle.static_file(file_path, "img")
+
+#Vse kar pride v /im/ nekiii , to je statična datoteka, ki loh gre tut na drug server iskat al pa nekam drugam
+
 bottle.run(reloader=True, debug=True)

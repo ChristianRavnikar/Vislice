@@ -26,7 +26,7 @@
   <h4>{{ igra.stevilo_napak() }}</h4>
 
 
-  <img src="img/{{ igra.stevilo_napak() }}.jpg" alt="Stopnja obešenosti">
+  <img src="/img/{{ igra.stevilo_napak() }}.jpg" alt="Stopnja obešenosti">
 
  <!-- Ker nas preusmeri na isto stran ni treba dati actiona -->
 
