@@ -24,15 +24,19 @@ class Vislice:
         return self.max_id
 
     def nova_igra(self):
+        self.nalozi_igre_iz_datoteke()
         nov_id = self.prost_id_igre()
         sveza_igra = nova_igra()
         self.igre[nov_id] = (sveza_igra, ZACETEK)
+        self.nalozi_igre_v_datoteko()
         return nov_id
 
     def ugibaj(self, id_igre, crka):
+        self.nalozi_igre_iz_datoteke()
         igra, _ = self.igre[id_igre]
         novo_stanje = igra.ugibaj(crka)
         self.igre[id_igre] = (igra, novo_stanje)
+        self.nalozi_igre_v_datoteko()
 
 # Druga možnost:
 #    def prost_id_igre(self):
