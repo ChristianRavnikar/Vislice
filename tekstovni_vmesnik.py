@@ -35,3 +35,4 @@ def pozeni_vmesnik():
             break
 
 
+# poskus spremembe na drugem računalniku
